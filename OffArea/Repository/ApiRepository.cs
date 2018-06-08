@@ -61,11 +61,7 @@ namespace OffAreaApp.Repository
                     var result = client.GetStringAsync(url).Result;
                     if (result == "true") return true;
                     else return false;
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
+                }                
                 
             }           
         }
