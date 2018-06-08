@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  	<item android:id="@+id/actionScanner"
+		android:icon="@drawable/barcode"
+    	android:title="Scan"
+    	android:showAsAction="ifRoom" />
+	<item android:id="@+id/actionConfirm"
+		android:icon="@drawable/confirm"
+       	android:title="Confirm"
+       	android:showAsAction="ifRoom" />
+</menu>
+
