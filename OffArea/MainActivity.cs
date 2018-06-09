@@ -25,7 +25,7 @@ namespace OffArea
             txtPassword = FindViewById<TextView>(Resource.Id.txtPassword);
             txtUsername = FindViewById<TextView>(Resource.Id.txtUsername);
             btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
-            btnLogin.SetBackgroundColor(Color.GreenYellow);
+            btnLogin.SetBackgroundColor(Color.PaleGreen);
             btnLogin.Click += BtnLogin_Click;
         }
 

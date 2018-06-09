@@ -20,7 +20,7 @@ namespace OffAreaApp.Repository
     public class ApiRepository
     {
         public static string ApiUrl = "http://192.168.42.202:7574";
-        public static string ApiUserAuthentication = @"http://192.168.42.202/api/auth.php?";
+        public static string ApiUserAuthentication = @"http://192.168.42.202/api/AuthMail.php?";
 
         public List<Order> GetAllOrders()
         {
@@ -44,7 +44,7 @@ namespace OffAreaApp.Repository
         {
             using (var client = new HttpClient())
             {
-                var result = client.GetStringAsync(ApiUrl + "/ConfirmOrder/ " + OrderID).Result;                
+                var result = client.GetStringAsync(ApiUrl + "/ConfirmOrder/ " + OrderID).Result;
             }
         }
 
@@ -52,18 +52,14 @@ namespace OffAreaApp.Repository
         {
             using (var client = new HttpClient())
             {
-                try
-                {
-                    var username_correct = System.Net.WebUtility.UrlEncode(username);
-                    var password_correct = System.Net.WebUtility.UrlEncode(password);
-                    var url = ApiUserAuthentication + "username=" + username
-                    + "&password=" + password;
-                    var result = client.GetStringAsync(url).Result;
-                    if (result == "true") return true;
-                    else return false;
-                }                
-                
-            }           
+                var username_correct = System.Net.WebUtility.UrlEncode(username);
+                var password_correct = System.Net.WebUtility.UrlEncode(password);
+                var url = ApiUserAuthentication + "email=" + username_correct
+                + "&password=" + password_correct;
+                var result = client.GetStringAsync(url).Result;
+                if (result == "True") return true;
+                else return false;
+            }
         }
 
     }
